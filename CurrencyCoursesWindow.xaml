@@ -1,0 +1,104 @@
+﻿<Window x:Name="curCoursesWIndow" x:Class="Bankir_CurrencyExchangeAccounting.CurrencyCoursesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bankir_CurrencyExchangeAccounting"
+        mc:Ignorable="d"
+        Title="Банкир - Курсы валют" Height="700" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#FF003352">
+        <Border Background="White" Height="600" VerticalAlignment="Center" MaxWidth="800" Padding="15,15,15,15">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="1" Color="LightGray" ShadowDepth="3" Opacity="0.3" />
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition />
+
+                </Grid.RowDefinitions>
+                <Image Source="\F1iOCld7_400x400.png"  HorizontalAlignment="Left" Height="80" VerticalAlignment="Stretch" Width="60" />
+
+                <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+
+                    <Button x:Name="addBtn" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Center" Width="118" Height="42" Background="White" Foreground="#FF8B8800" BorderBrush="{x:Null}" Click="addBtn_Click" Grid.Row="0" Cursor="Hand" FontFamily="Proxima Nova Rg" Style="{StaticResource MaterialDesignFlatButton}">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button x:Name="refreshBtn" Style="{StaticResource MaterialDesignFlatButton}"
+                Content="Обновить"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Width="118"
+                Height="42"
+                Background="White"
+                Foreground="#FF8B8800"
+                BorderBrush="{x:Null}" 
+                Click="refreshBtn_Click"
+                    Grid.Row="0" Cursor="Hand" FontFamily="Proxima Nova Rg" Margin="50,0,0,0">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+                <Button x:Name="backBtn" Content="Выход" Margin="0,0,0,10" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FF8B8800" FontFamily="Proxima Nova Rg" Height="50" Click="backBtn_Click" Background="White" FontWeight="Bold"/>
+                <DataGrid x:Name="dgCourses" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn ElementStyle="{StaticResource RightAligned}" Header="Курс на Дату" Binding="{Binding DateOfCourse, StringFormat=dd-MM-yyyy}" Width="150" >
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+
+                        </DataGridTextColumn>
+                        <DataGridTextColumn ElementStyle="{StaticResource RightAligned}" Header="Вид валюты" Binding="{Binding TypeOfCurrency.Name}" Width="130">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn ElementStyle="{StaticResource RightAligned}" Header="За" Binding="{Binding ZaSkolko}" Width="80">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn ElementStyle="{StaticResource RightAligned}" Header="Курс ЦБ РФ" Width="150" Binding="{Binding CourseRF}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn ElementStyle="{StaticResource RightAligned}" Header="Курс на продажу" Binding="{Binding CourseSale}" Width="120">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn ElementStyle="{StaticResource RightAligned}" Header="Курс на покупку" Binding="{Binding CourseBuy}" Width="120">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

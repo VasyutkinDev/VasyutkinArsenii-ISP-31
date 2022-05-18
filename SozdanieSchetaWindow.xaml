@@ -1,0 +1,66 @@
+﻿<Window x:Name="dobavitWIndow" x:Class="Bankir_CurrencyExchangeAccounting.SozdanieSchetaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bankir_CurrencyExchangeAccounting"
+        mc:Ignorable="d"
+        Title="Банкир - Создание счёта" Height="600" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#FF003352">
+        <Border Height="550" Background="White" MaxWidth="450" Padding="30">
+            <StackPanel  Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="\F1iOCld7_400x400.png"  HorizontalAlignment="Left" Height="80" VerticalAlignment="Stretch" Width="60" />
+
+                    <TextBlock TextWrapping="Wrap" Text="Заполните все поля!" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Proxima Nova Rg" FontSize="24" Margin="35,0,0,0"/>
+
+                </StackPanel>
+                <DatePicker x:Name="openingDate" SelectedDate="{Binding OpeningDate}"  materialDesign:HintAssist.Hint="Дата открытия"  FontFamily="Proxima Nova Rg" FontSize="17" Margin="0,20,0,0" HorizontalAlignment="Center" Width="150" Height="43"/>
+
+                <ComboBox x:Name="clientCombo" SelectedItem="{Binding Client}" DisplayMemberPath="FullName" materialDesign:HintAssist.Hint="Клиент" Style="{StaticResource MaterialDesignFloatingHintComboBox}"   FontFamily="Proxima Nova Rg" HorizontalAlignment="Stretch" FontSize="17" Cursor="Arrow" />
+                <ComboBox x:Name="currencyCombo" SelectedItem="{Binding TypeOfCurrency}" DisplayMemberPath="Name"  materialDesign:HintAssist.Hint="Вид валюты" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Proxima Nova Rg" HorizontalAlignment="Stretch" FontSize="17" Cursor="Arrow" Margin="0,20,0,0" />
+                <TextBox x:Name="bikBox"  Text="{Binding BIK}" materialDesign:HintAssist.Hint="БИК" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Proxima Nova Rg" FontSize="17" Margin="0,20,0,0" MaxLength="9"/>
+                <TextBox x:Name="accountNumBox" Text="{Binding NumOfAccount}" materialDesign:HintAssist.Hint="Номер счёта" FontFamily="Proxima Nova Rg" FontSize="17" Margin="0,20,0,0" Style="{StaticResource MaterialDesignFloatingHintTextBox}" MaxLength="20"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
+                    <Button x:Name="saveBtn" 
+                Content="Сохранить"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="118"
+                Height="42"
+                Background="White"
+                Foreground="#FF8B8800"
+                BorderBrush="Black"
+                Click="saveBtn_Click"
+                    Grid.Row="1" Cursor="Hand" FontFamily="Proxima Nova Rg" Margin="0,0,20,0">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button x:Name="cancelBtn" 
+                Content="Отмена"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="118"
+                Height="42"
+                Background="White"
+                Foreground="#FF8B8800"
+                BorderBrush="Black"
+                Click="cancelBtn_Click"
+                    Grid.Row="1" Cursor="Hand" FontFamily="Proxima Nova Rg">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,29 @@
+﻿<Window x:Name="glWindow" x:Class="Bankir_CurrencyExchangeAccounting.GlavnoeMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bankir_CurrencyExchangeAccounting"
+        mc:Ignorable="d"
+        Title="Банкир - главное меню" Height="600" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#FF003352" >
+        <Border MinWidth="400" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" Height="400">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0" />
+            </Border.Effect>
+            <StackPanel Margin="0,0,0,0">
+                <Grid>
+                    <Button x:Name="backBtn" Content="Выход" Margin="0,0,0,10" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FF8B8800" FontFamily="Proxima Nova Rg" Height="50" Click="backBtn_Click" Background="White" FontWeight="Bold"/>
+                    <Image Source="\F1iOCld7_400x400.png"  HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="50" />
+                </Grid>
+                <TextBlock Text="Добро пожаловать!" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" FontFamily="Proxima Nova Rg" Margin="0 0 0 10"/>
+                <Button x:Name="clientsInfoBtn" Content="Клиенты" Margin="0 20 0 0" Background="#FF8B8800" BorderBrush="#FF008BFF" Foreground="White" FontFamily="Proxima Nova Rg" Click="clientsInfoBtn_Click"/>
+                <Button x:Name="clientAccountsBtn" Content="Счета" Margin="0 20 0 0" Background="#FF8B8800" BorderBrush="#FF008BFF" Foreground="White" FontFamily="Proxima Nova Rg" Click="clientAccountsBtn_Click"/>
+                <Button x:Name="operationsInfoBtn" Content="Операции" Margin="0 20 0 0" Background="#FF8B8800" BorderBrush="#FF008BFF" Foreground="White" FontFamily="Proxima Nova Rg" Click="operationsInfoBtn_Click"/>
+                <Button x:Name="coursesInfoBtn" Content="Курсы валют" Margin="0 20 0 0" Background="#FF8B8800" BorderBrush="#FF008BFF" Foreground="White" FontFamily="Proxima Nova Rg" Click="coursesInfoBtn_Click"/>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
